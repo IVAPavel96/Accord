@@ -183,7 +183,7 @@ MonoBehaviour:
   horizontalVelocity: 5
   jumpForce: 17
   groundedCollisionPoint: {fileID: 1176350776352813072}
-  groundCheckMask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 1
 --- !u!114 &243145606747966906

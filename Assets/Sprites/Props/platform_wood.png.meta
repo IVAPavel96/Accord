@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -1276153486436782871
     second: segments_0002_0
+  - first:
+      213: 5524253696037386625
+    second: platform_wood_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: segments_0002_0
+      name: platform_wood_0
       rect:
         serializedVersion: 2
         x: 38
@@ -102,14 +105,14 @@ TextureImporter:
         width: 621
         height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 220, y: 0, z: 212, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec2f0a5a213a4ee0800000000000000
-      internalID: -1276153486436782871
+      spriteID: 1897271c7771aac40800000000000000
+      internalID: 5524253696037386625
       vertices: []
       indices: 
       edges: []

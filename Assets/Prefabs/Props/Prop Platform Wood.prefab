@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5932953520885962001, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_Size.x
-      value: 6.21
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5932953520885962001, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_Size.y
@@ -66,7 +66,15 @@ PrefabInstance:
     - target: {fileID: 5932953520885962001, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1276153486436782871, guid: 3e0dd818b31709546949904178a4379c, type: 3}
+      objectReference: {fileID: 5524253696037386625, guid: 3e0dd818b31709546949904178a4379c, type: 3}
+    - target: {fileID: 5932953520885962001, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569345639251646301, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
@@ -90,10 +98,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.029367566, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 2.2, y: 0, z: 2.12, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.21, y: 1.29}
-    newSize: {x: 6.21, y: 1.29}
+    newSize: {x: 27, y: 1.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -68,6 +68,7 @@ namespace Player
         private void Start()
         {
             GameStateManager.Instance.onDeath.AddListener(OnDeath);
+            GameStateManager.Instance.RegisterPlayer(gameObject);
         }
 
         private void OnDestroy()
@@ -77,19 +78,33 @@ namespace Player
 
         private void OnDeath()
         {
+            ResetAnimationState();
+            rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
+            enabled = false;
+        }
+
+        public void OnFinish()
+        {
+            ResetAnimationState();
+            rb.velocity = Vector2.zero;
+            enabled = false;
+            GameStateManager.Instance.PlayerFinished(gameObject);
+        }
+
+        private void ResetAnimationState()
+        {
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsHittingWalls", false);
             animator.SetFloat("Speed", 0);
-            rb.isKinematic = true;
-            rb.velocity = Vector2.zero;
         }
 
         private void Update()
         {
-            if (GameStateManager.Instance.IsDead)
-            {
-                return;
-            }
+            // if (GameStateManager.Instance.IsDead)
+            // {
+            //     return;
+            // }
 
             Jump();
             MoveHorizontal();
@@ -147,7 +162,7 @@ namespace Player
         private bool CheckHitFromDir(Vector2 direction)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, playerRadius + 0.25f);
-            return hit.collider != null;
+            return hit.collider != null && !hit.collider.isTrigger;
 
             //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, );
             //if (hit.collider == null) return false;

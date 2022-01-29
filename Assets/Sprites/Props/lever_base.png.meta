@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -2182124076254010665
     second: rock_0
+  - first:
+      213: 4061365741840799890
+    second: lever_base_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rock_0
+      name: lever_base_0
       rect:
         serializedVersion: 2
-        x: 166
-        y: 82
-        width: 352
-        height: 151
+        x: 241
+        y: 114
+        width: 202
+        height: 87
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d26d0bc6b987b1e0800000000000000
-      internalID: -2182124076254010665
+      spriteID: 2989c59cf9edc5830800000000000000
+      internalID: 4061365741840799890
       vertices: []
       indices: 
       edges: []

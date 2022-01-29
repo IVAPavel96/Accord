@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2182124076254010665, guid: e78f38320346030418ba9efdb894e7fb, type: 3}
+  m_Sprite: {fileID: 4061365741840799890, guid: e78f38320346030418ba9efdb894e7fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.02, y: 0.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,13 +106,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5895679317758960685}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9019694171204377058}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
 --- !u!212 &3749142852505872814
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -173,11 +173,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2578780797932042436, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_Name
-      value: Prop Logic Lever
+      value: Prop Logic_Input Lever
       objectReference: {fileID: 0}
     - target: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,6 +250,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+--- !u!1 &7206470697483443495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2578780797932042436, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+  m_PrefabInstance: {fileID: 5173278710401689059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9019694171204377058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
@@ -264,7 +277,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 1.0976632}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,3 +291,77 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 2.2046738}
   m_EdgeRadius: 0
+--- !u!50 &175883572045092417
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470697483443495}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &7830118165281065498
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470697483443495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 7734369245170203620}
+    m_ColliderPaths:
+    - - X: 9999707
+        Y: -23368
+      - X: 9999707
+        Y: 11000000
+      - X: -10000000
+        Y: 10999707
+      - X: -9999707
+        Y: -23368
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.9999414, y: -0.0023368}
+      - {x: 0.9999414, y: 1.1}
+      - {x: -1, y: 1.0999414}
+      - {x: -0.9999414, y: -0.0023368}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!114 &3293040320192283886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206470697483443495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bfa2f836f8471f82db51bbb3bb109e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  movingPart: {fileID: 422394773144493284}
+  rotationMin: 60
+  rotationMax: 120
+  rotationTime: 0.5

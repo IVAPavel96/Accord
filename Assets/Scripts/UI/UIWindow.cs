@@ -15,6 +15,7 @@ namespace UI
         {
             SetAlpha(1, fadeIn);
             Invoke(nameof(TriggerOnShow), fadeIn);
+            window.blocksRaycasts = true;
         }
 
         private void TriggerOnShow()
@@ -26,6 +27,7 @@ namespace UI
         {
             SetAlpha(0, fadeOut);
             Invoke(nameof(TriggerOnHide), fadeOut);
+            window.blocksRaycasts = false;
         }
 
         private void TriggerOnHide()

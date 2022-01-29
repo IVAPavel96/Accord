@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +8,15 @@ namespace Game
     public class GameStateManager : MonoBehaviour
     {
         public static GameStateManager Instance;
-        private bool isDead;
-        public bool IsDead => isDead;
+
+        [SerializeField] private string nextScene;
 
         public UnityEvent onDeath = new UnityEvent();
+        public UnityEvent onWin = new UnityEvent();
+
+        private bool isDead;
+        private HashSet<GameObject> players = new HashSet<GameObject>();
+        private HashSet<GameObject> playersFinished = new HashSet<GameObject>();
 
         private void Awake()
         {
@@ -22,13 +28,33 @@ namespace Game
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        public void NextScene()
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+
         public void TriggerDeath()
         {
             if (!isDead)
             {
                 onDeath.Invoke();
             }
+
             isDead = true;
+        }
+
+        public void RegisterPlayer(GameObject player)
+        {
+            players.Add(player);
+        }
+
+        public void PlayerFinished(GameObject player)
+        {
+            playersFinished.Add(player);
+            if (playersFinished.Count == players.Count)
+            {
+                onWin.Invoke();
+            }
         }
     }
 }
