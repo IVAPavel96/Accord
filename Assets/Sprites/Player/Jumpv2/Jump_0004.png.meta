@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e6ab388784a09044b98675e7cecbe0dc
+guid: 3efbf7a5993c2764f929ecac14a55dad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1998865940183999189
-    second: push_0005_0
+      213: 629009617555457334
+    second: Jump_0004_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: push_0005_0
+      name: Jump_0004_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 56
-        width: 342
-        height: 384
+        x: 102
+        y: 55
+        width: 324
+        height: 488
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d26b4e6bf56dbb10800000000000000
-      internalID: 1998865940183999189
+      spriteID: 63582be1ae0bab800800000000000000
+      internalID: 629009617555457334
       vertices: []
       indices: 
       edges: []

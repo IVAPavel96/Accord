@@ -19,7 +19,7 @@ namespace Player
         private bool isHittingLeft;
         private bool isHittingRight;
         private bool isHittingWalls;
-        private float playerRadiusSqr;
+        private float playerRadius;
 
         #region отладка
         private bool IsJumpingAnimation => animator != null && animator.GetBool("IsJumping"); //debug
@@ -60,7 +60,7 @@ namespace Player
             wasGrounded = Grounded;
             renderer = GetComponentInChildren<SpriteRenderer>();
             var circleR = GetComponent<CircleCollider2D>().radius;
-            playerRadiusSqr = circleR * circleR;
+            playerRadius = circleR * circleR;
             Physics2D.queriesStartInColliders = false;
         }
 
@@ -117,11 +117,14 @@ namespace Player
 
         private bool CheckHitFromDir(Vector2 direction)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction);
-            if (hit.collider == null) return false;
-            
-            distance = Vector2.SqrMagnitude(hit.point - (Vector2)transform.position);
-            return distance <= playerRadiusSqr + 0.05f;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, playerRadius + 0.25f);
+            return hit.collider != null;
+
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, );
+            //if (hit.collider == null) return false;
+
+            //distance = Vector2.SqrMagnitude(hit.point - (Vector2)transform.position);
+            //return distance <= playerRadiusSqr + 0.05f;
         }
     }
 }

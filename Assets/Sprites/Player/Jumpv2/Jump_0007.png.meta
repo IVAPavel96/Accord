@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 30a8ff50712a4f04a8ee0575a87fffb3
+guid: 2cb03f1aee117724f8ffd6fdca5620b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5218321180474052174
-    second: test_RUN_0004_0
+      213: 553424311028957214
+    second: Jump_0007_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: test_RUN_0004_0
+      name: Jump_0007_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 34
-        width: 489
-        height: 314
+        x: 72
+        y: 392
+        width: 384
+        height: 383
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b172f1c88cc497b0800000000000000
-      internalID: -5218321180474052174
+      spriteID: e1042fc8a782ea700800000000000000
+      internalID: 553424311028957214
       vertices: []
       indices: 
       edges: []
