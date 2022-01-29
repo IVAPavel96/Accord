@@ -142,11 +142,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7477769116235402350}
   - component: {fileID: 7477769116235402345}
+  - component: {fileID: 243145606747966906}
   - component: {fileID: 4897729255966885383}
   - component: {fileID: -7961287730804503840}
   m_Layer: 3
   m_Name: PlayerPrefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,9 +183,21 @@ MonoBehaviour:
   horizontalVelocity: 5
   jumpForce: 17
   groundedCollisionPoint: {fileID: 1176350776352813072}
-  groundCheckMask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &243145606747966906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477769116235402351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83795aca40ada334fa8c6efb60776ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &4897729255966885383
 Rigidbody2D:
   serializedVersion: 4

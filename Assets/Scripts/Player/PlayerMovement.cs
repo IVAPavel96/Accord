@@ -1,7 +1,8 @@
+using System;
 using Extensions;
+using Game;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.U2D;
 
 namespace Player
 {
@@ -10,18 +11,18 @@ namespace Player
         [SerializeField] private float horizontalVelocity;
         [SerializeField] private float jumpForce;
         [SerializeField] private Transform groundedCollisionPoint;
-        [SerializeField] private LayerMask groundCheckMask;
+        [SerializeField] private LayerMask groundMask;
 
         private Rigidbody2D rb;
         private Animator animator;
         private SpriteRenderer renderer;
-        private bool wasGrounded; //нужна для анимации завершения прыжка
+        private bool wasGrounded; //РЅСѓР¶РЅР° РґР»СЏ Р°РЅРёРјР°С†РёРё Р·Р°РІРµСЂС€РµРЅРёСЏ РїСЂС‹Р¶РєР°
         private bool isHittingLeft;
         private bool isHittingRight;
         private bool isHittingWalls;
         private float playerRadius;
 
-        #region отладка
+        #region РѕС‚Р»Р°РґРєР°
         private bool IsJumpingAnimation => animator != null && animator.GetBool("IsJumping"); //debug
         [ShowInInspector]
         private float IsMovingAnimation //debug
@@ -42,13 +43,13 @@ namespace Player
         #endregion
 
         private readonly float groundCheckRadius = 0.1f;
-        Collider2D[] temp = new Collider2D[1];
+        private readonly Collider2D[] collisionBuffer = new Collider2D[1];
         private bool Grounded
         {
             get
             {
                 Vector2 position = groundedCollisionPoint.position.xy();
-                int collisionCount = Physics2D.OverlapCircleNonAlloc(position, groundCheckRadius, temp, groundCheckMask);
+                int collisionCount = Physics2D.OverlapCircleNonAlloc(position, groundCheckRadius, collisionBuffer, groundMask);
                 return collisionCount > 0;
             }
         }
@@ -64,8 +65,32 @@ namespace Player
             Physics2D.queriesStartInColliders = false;
         }
 
+        private void Start()
+        {
+            GameStateManager.Instance.onDeath.AddListener(OnDeath);
+        }
+
+        private void OnDestroy()
+        {
+            GameStateManager.Instance.onDeath.AddListener(OnDeath);
+        }
+
+        private void OnDeath()
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsHittingWalls", false);
+            animator.SetFloat("Speed", 0);
+            rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
+        }
+
         private void Update()
         {
+            if (GameStateManager.Instance.IsDead)
+            {
+                return;
+            }
+
             Jump();
             MoveHorizontal();
 
@@ -82,7 +107,6 @@ namespace Player
             }
             if (!wasGrounded && Grounded)
             {
-                Debug.Log("landing");
                 OnLanding();
             }
             wasGrounded = Grounded;
@@ -90,19 +114,24 @@ namespace Player
 
         public void OnLanding()
         {
-            animator.SetBool("IsJumping", false); //вынес в отдельный метод - может еще что-нибудь понадобится
+            animator.SetBool("IsJumping", false); //РІС‹РЅРµСЃ РІ РѕС‚РґРµР»СЊРЅС‹Р№ РјРµС‚РѕРґ - РјРѕР¶РµС‚ РµС‰Рµ С‡С‚Рѕ-РЅРёР±СѓРґСЊ РїРѕРЅР°РґРѕР±РёС‚СЃСЏ
         }
 
         private void MoveHorizontal()
         {
             float inputDirection = Input.GetAxis("Horizontal");
-            Vector2 newVelocity = rb.velocity;
-            newVelocity.x = inputDirection * horizontalVelocity;
-            rb.velocity = newVelocity;
+            SetHorizontalVelocity(inputDirection * horizontalVelocity);
 
             animator.SetFloat("Speed", Mathf.Abs(inputDirection));
             if (Mathf.Abs(inputDirection) > 0.01f)
-                renderer.flipX = !(inputDirection > 0); //меняем ориентацию при смене направления
+                renderer.flipX = !(inputDirection > 0); //РјРµРЅСЏРµРј РѕСЂРёРµРЅС‚Р°С†РёСЋ РїСЂРё СЃРјРµРЅРµ РЅР°РїСЂР°РІР»РµРЅРёСЏ
+        }
+
+        private void SetHorizontalVelocity(float velocity)
+        {
+            Vector2 newVelocity = rb.velocity;
+            newVelocity.x = velocity;
+            rb.velocity = newVelocity;
         }
 
         private void CheckWallsCollision()

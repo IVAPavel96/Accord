@@ -12,6 +12,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 2.1699998
+      objectReference: {fileID: 0}
+    - target: {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 3.65
       objectReference: {fileID: 0}
@@ -1167,50 +1175,5 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7356260930946471798, guid: 54387ea303a543048bbbd9752f7995d1, type: 3}
-    m_RemovedComponents:
-    - {fileID: 788092949757219235, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
---- !u!1 &3171735305869231204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7936992911906834520, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
-  m_PrefabInstance: {fileID: 4765258606795197500}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2036023543686750804
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171735305869231204}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.562709, y: 1.6, z: 0.2}
-  m_Center: {x: -1.5436456, y: 0, z: 0}
---- !u!65 &8500074307101055747
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171735305869231204}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.562709, y: 1.6, z: 0.2}
-  m_Center: {x: 1.543646, y: 0, z: 0}
---- !u!65 &1540784293812268666
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171735305869231204}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.1728146, y: 0.8790425, z: 0.2}
-  m_Center: {x: 0, y: 0.019804612, z: 0}
