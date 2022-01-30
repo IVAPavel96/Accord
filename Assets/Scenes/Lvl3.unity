@@ -11330,7 +11330,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2663865951757547858, guid: 5ae73df926914674e9b23432e3630772, type: 3}
       propertyPath: nextScene
-      value: MainMenu
+      value: Lvl4
       objectReference: {fileID: 0}
     - target: {fileID: 2663865951757547868, guid: 5ae73df926914674e9b23432e3630772, type: 3}
       propertyPath: winScreen
