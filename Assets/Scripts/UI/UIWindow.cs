@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,11 @@ namespace UI
         public UnityEvent onShow = new UnityEvent();
 
         public UnityEvent onHide = new UnityEvent();
+
+        private void Start()
+        {
+            SetAlpha(0, 0);
+        }
 
         public void Show(float fadeIn = 0)
         {

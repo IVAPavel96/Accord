@@ -1,5 +1,7 @@
 ﻿using DG.Tweening;
+using Extensions;
 using Player;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LevelElements
@@ -9,7 +11,7 @@ namespace LevelElements
     {
         [SerializeField] private SpriteRenderer openState;
         [SerializeField] private SpriteRenderer closedState;
-        [SerializeField] private bool isOpened;
+        [SerializeField, HideInInspector] private bool isOpened;
         [SerializeField] private float fadeDuration = 1f;
 
         private LogicTriggerOutput trigger;
@@ -28,12 +30,14 @@ namespace LevelElements
             trigger.onTriggerDisable.RemoveListener(Close);
         }
 
+        [Button]
         private void Open()
         {
             isOpened = true;
             UpdateSprite();
         }
 
+        [Button]
         private void Close()
         {
             isOpened = false;
@@ -42,8 +46,16 @@ namespace LevelElements
 
         void UpdateSprite()
         {
-            openState.DOFade(isOpened ? 1 : 0, fadeDuration);
-            closedState.DOFade(!isOpened ? 1 : 0, fadeDuration);
+            if (Application.isPlaying)
+            {
+                openState.DOFade(isOpened ? 1 : 0, fadeDuration);
+                closedState.DOFade(!isOpened ? 1 : 0, fadeDuration);
+            }
+            else
+            {
+                openState.color = openState.color.WithAlpha(isOpened ? 1 : 0);
+                closedState.color = openState.color.WithAlpha(!isOpened ? 1 : 0);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)

@@ -12,6 +12,8 @@ namespace Player
         [SerializeField] private float jumpForce;
         [SerializeField] private Transform groundedCollisionPoint;
         [SerializeField] private LayerMask groundMask;
+        [SerializeField] private AudioSource jumpSound;
+        [SerializeField] private AudioSource fallSound;
 
         private Rigidbody2D rb;
         private Animator animator;
@@ -101,11 +103,6 @@ namespace Player
 
         private void Update()
         {
-            // if (GameStateManager.Instance.IsDead)
-            // {
-            //     return;
-            // }
-
             Jump();
             MoveHorizontal();
 
@@ -119,10 +116,12 @@ namespace Player
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 animator.SetBool("IsJumping", true);
+                jumpSound.Play();
             }
             if (!wasGrounded && Grounded)
             {
                 OnLanding();
+                fallSound.Play();
             }
             wasGrounded = Grounded;
         }

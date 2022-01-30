@@ -10,6 +10,8 @@ namespace LevelElements
         [SerializeField, BoxGroup()] private float rotationMin;
         [SerializeField, BoxGroup()] private float rotationMax;
         [SerializeField, BoxGroup()] private float rotationTime;
+        [SerializeField] private AudioSource audioOnTrigger;
+        [SerializeField] private AudioSource audioOffTrigger;
         
         private bool inUsableRange;
         private bool triggerEnabled;
@@ -24,11 +26,13 @@ namespace LevelElements
                 {
                     movingPart?.DOLocalRotate(Vector3.forward * rotationMax, rotationTime, RotateMode.FastBeyond360);
                     TriggerEnable();
+                    audioOnTrigger?.Play();
                 }
                 else
                 {
                     movingPart?.DOLocalRotate(Vector3.forward * rotationMin, rotationTime, RotateMode.FastBeyond360);
                     TriggerDisable();
+                    audioOffTrigger?.Play();
                 }
             }
         }

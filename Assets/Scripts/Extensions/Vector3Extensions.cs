@@ -6,7 +6,7 @@ namespace Extensions
     {
         public static Vector2 xy(this Vector3 vector)
         {
-            return new Vector2(vector.x, vector.y);
+            return vector;
         }
 
         public static Vector3 WithX(this Vector3 vector, float value)
