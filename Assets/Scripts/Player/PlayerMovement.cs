@@ -3,6 +3,8 @@ using Extensions;
 using Game;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
@@ -15,8 +17,11 @@ namespace Player
         [SerializeField] private AudioSource jumpSound;
         [SerializeField] private AudioSource fallSound;
 
+        public float horizontalMove { get; set; }
+    
+
+        
         private Rigidbody2D rb;
-        private Animator animator;
         private SpriteRenderer renderer;
         private bool wasGrounded; //нужна для анимации завершения прыжка
         private bool isHittingLeft;
@@ -25,16 +30,6 @@ namespace Player
         private float playerRadius;
 
         #region отладка
-        private bool IsJumpingAnimation => animator != null && animator.GetBool("IsJumping"); //debug
-        [ShowInInspector]
-        private float IsMovingAnimation //debug
-        {
-            get
-            {
-                if (animator != null) return animator.GetFloat("Speed");
-                return 0f;
-            }
-        }
 
         [ShowInInspector] private bool IsHittingLeft => isHittingLeft;
         [ShowInInspector] private bool IsHittingRight => isHittingRight;
@@ -43,6 +38,16 @@ namespace Player
         [ShowInInspector] private float distance;
 
         #endregion
+
+        #region ивенты для аниматора 
+        //todo возможно, аналогично стоит сделать PlayerSound!!!
+        public event Action<float> OnHorizontalMoving;
+        public event Action OnJumping;
+        public event Action OnLanding;
+        public event Action<bool> OnHittingWalls;
+        public event Action OnFinishing;
+        #endregion
+
 
         private readonly float groundCheckRadius = 0.1f;
         private readonly Collider2D[] collisionBuffer = new Collider2D[1];
@@ -59,12 +64,12 @@ namespace Player
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            animator = GetComponentInChildren<Animator>();
             wasGrounded = Grounded;
             renderer = GetComponentInChildren<SpriteRenderer>();
             var circleR = GetComponent<CircleCollider2D>().radius;
             playerRadius = circleR * circleR;
             Physics2D.queriesStartInColliders = false;
+            
         }
 
         private void Start()
@@ -80,7 +85,8 @@ namespace Player
 
         private void OnDeath()
         {
-            ResetAnimationState();
+            OnFinishing?.Invoke();
+            
             rb.isKinematic = true;
             rb.velocity = Vector2.zero;
             enabled = false;
@@ -88,55 +94,47 @@ namespace Player
 
         public void OnFinish()
         {
-            ResetAnimationState();
+            OnFinishing.Invoke();
             rb.velocity = Vector2.zero;
             enabled = false;
             GameStateManager.Instance.PlayerFinished(gameObject);
         }
 
-        private void ResetAnimationState()
-        {
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsHittingWalls", false);
-            animator.SetFloat("Speed", 0);
-        }
-
+        
         private void Update()
         {
-            Jump();
+            //Jump();
             MoveHorizontal();
 
             CheckWallsCollision();
             
         }
 
-        private void Jump()
+        public void Jump()
         {
-            if (Input.GetButtonDown("Jump") && Grounded)
+            //if (Input.GetButtonDown("Jump") && Grounded)
+            if (Grounded)
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                animator.SetBool("IsJumping", true);
+                OnJumping?.Invoke();
                 jumpSound.Play();
             }
             if (!wasGrounded && Grounded)
             {
-                OnLanding();
+                OnLanding?.Invoke();
                 fallSound.Play();
             }
             wasGrounded = Grounded;
         }
-
-        public void OnLanding()
-        {
-            animator.SetBool("IsJumping", false); //вынес в отдельный метод - может еще что-нибудь понадобится
-        }
+        
 
         private void MoveHorizontal()
         {
-            float inputDirection = Input.GetAxis("Horizontal");
+            //float inputDirection = Input.GetAxis("Horizontal");
+            float inputDirection = horizontalMove;
             SetHorizontalVelocity(inputDirection * horizontalVelocity);
 
-            animator.SetFloat("Speed", Mathf.Abs(inputDirection));
+            OnHorizontalMoving?.Invoke(inputDirection);
             if (Mathf.Abs(inputDirection) > 0.01f)
                 renderer.flipX = !(inputDirection > 0); //меняем ориентацию при смене направления
         }
@@ -153,9 +151,7 @@ namespace Player
             isHittingRight = CheckHitFromDir(transform.right);
             isHittingLeft = CheckHitFromDir(-transform.right);
             isHittingWalls = isHittingRight || isHittingLeft;
-
-            animator.SetBool("IsHittingWalls", isHittingWalls);
-
+            OnHittingWalls?.Invoke(isHittingWalls);
         }
 
         private bool CheckHitFromDir(Vector2 direction)
@@ -169,5 +165,7 @@ namespace Player
             //distance = Vector2.SqrMagnitude(hit.point - (Vector2)transform.position);
             //return distance <= playerRadiusSqr + 0.05f;
         }
+
+        
     }
 }

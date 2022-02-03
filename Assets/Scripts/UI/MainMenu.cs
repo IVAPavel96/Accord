@@ -7,13 +7,16 @@ namespace UI
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private Button play;
+        [SerializeField] private Button settings;
         [SerializeField] private Button exit;
         [SerializeField] private string level1Name;
+        [SerializeField] private string settingsSceneName;
         [SerializeField] private GameObject backgroundMusic;
 
         private void Start()
         {
             play.onClick.AddListener(Play);
+            settings.onClick.AddListener(OpenSettings);
             exit.onClick.AddListener(Exit);
             DontDestroyOnLoad(backgroundMusic);
             GameObject[] musics = GameObject.FindGameObjectsWithTag("BackgroundMusic");
@@ -30,6 +33,11 @@ namespace UI
         private void Play()
         {
             SceneManager.LoadScene(level1Name);
+        }
+
+        private void OpenSettings()
+        {
+            SceneManager.LoadScene(settingsSceneName);
         }
 
         private void Exit()

@@ -18,7 +18,13 @@ namespace LevelElements
 
         private void Update()
         {
-            if (inUsableRange && Input.GetButtonDown("Use"))
+            //ChangeLeverState(); //todo показать Саше: если раскомментировать, то забавный эффект
+        }
+
+        public void ChangeLeverState()
+        {
+            //if (inUsableRange && Input.GetButtonDown("Use"))
+            if (inUsableRange) //todo: скорее всего, эта проверка уже не нужна, но лучше уберем вместе
             {
                 triggerEnabled = !triggerEnabled;
 

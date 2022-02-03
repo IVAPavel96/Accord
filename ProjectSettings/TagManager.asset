@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Danger
   - BackgroundMusic
+  - Logic
   layers:
   - Default
   - TransparentFX

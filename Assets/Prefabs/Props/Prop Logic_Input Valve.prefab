@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop Logic_Input Valve
       objectReference: {fileID: 0}
+    - target: {fileID: 2578780797932042436, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
+      propertyPath: m_TagString
+      value: Logic
+      objectReference: {fileID: 0}
     - target: {fileID: 4244442110345427969, guid: e424168705f52f94a81f6efed768e5e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
