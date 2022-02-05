@@ -48,5 +48,11 @@ namespace UI
             else
                 window.alpha = value;
         }
+
+        protected void OpenMenu(UIWindow menu, float fadeOut = 0)
+        {
+            Hide(fadeOut);
+            menu.Show(fadeOut);
+        }
     }
 }

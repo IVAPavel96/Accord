@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class MainMenu : MonoBehaviour
+    public class MainMenu : UIWindow
     {
         [SerializeField] private Button play;
         [SerializeField] private Button settings;
@@ -13,9 +13,11 @@ namespace UI
         [SerializeField] private string settingsSceneName;
         [SerializeField] private GameObject backgroundMusic;
 
+        [SerializeField] private PlayModeMenu playModeMenu;
+
         private void Start()
         {
-            play.onClick.AddListener(Play);
+            play.onClick.AddListener(() => OpenMenu(playModeMenu, 0.1f));
             settings.onClick.AddListener(OpenSettings);
             exit.onClick.AddListener(Exit);
             DontDestroyOnLoad(backgroundMusic);
@@ -28,11 +30,6 @@ namespace UI
                         Destroy(music);
                 }
             }
-        }
-
-        private void Play()
-        {
-            SceneManager.LoadScene(level1Name);
         }
 
         private void OpenSettings()

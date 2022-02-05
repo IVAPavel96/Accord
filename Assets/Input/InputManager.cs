@@ -4,6 +4,7 @@ using Player;
 using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 using Zenject;
 
 namespace Input
@@ -17,6 +18,7 @@ namespace Input
         private InputControl inputController;
         private void Start()
         {
+            EnhancedTouchSupport.Enable();
             GameObject[] players = gameStateManager.Players.ToArray();
             playerMovements = players.Select(player => player.GetComponent<PlayerMovement>()).ToArray();
             playerTriggers = players.Select(player => player.GetComponent<PlayerTriggers>()).ToArray();
@@ -33,6 +35,7 @@ namespace Input
             inputController.Player.Use.started -= UseAll;
 
             inputController.Player.Disable();
+            EnhancedTouchSupport.Disable();
         }
 
         private void Update()
