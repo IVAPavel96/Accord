@@ -1,40 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+using Game;
 using Player;
 using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
-public class InputManager : MonoBehaviour
+namespace Input
 {
-    private PlayerMovement[] playerMovements;
-    private PlayerTriggers[] playerTriggers;
-    private InputControl inputController;
-    void OnEnable()
+    public class InputManager : MonoBehaviour
     {
-        playerMovements = GetComponentsInChildren<PlayerMovement>();
-        playerTriggers = GetComponentsInChildren<PlayerTriggers>();
+        [Inject] private GameStateManager gameStateManager;
 
-        inputController = new InputControl();
-        inputController.Player.Enable();
-        inputController.Player.Jump.started += JumpAll;
-        inputController.Player.Use.started += UseAll;
+        private PlayerMovement[] playerMovements;
+        private PlayerTriggers[] playerTriggers;
+        private InputControl inputController;
+        private void Start()
+        {
+            GameObject[] players = gameStateManager.Players.ToArray();
+            playerMovements = players.Select(player => player.GetComponent<PlayerMovement>()).ToArray();
+            playerTriggers = players.Select(player => player.GetComponent<PlayerTriggers>()).ToArray();
+
+            inputController = new InputControl();
+            inputController.Player.Enable();
+            inputController.Player.Jump.started += JumpAll;
+            inputController.Player.Use.started += UseAll;
+        }
+
+        private void OnDestroy()
+        {
+            inputController.Player.Jump.started -= JumpAll;
+            inputController.Player.Use.started -= UseAll;
+
+            inputController.Player.Disable();
+        }
+
+        private void Update()
+        {
+            playerMovements.ForEach(player => player.HorizontalMove = inputController.Player.Run.ReadValue<float>());
+        }
+
+        private void JumpAll(InputAction.CallbackContext context) => playerMovements.ForEach(player => player.Jump());
+
+        private void UseAll(InputAction.CallbackContext context) => playerTriggers.ForEach(player => player.Use());
     }
-
-    void Update()
-    {
-        playerMovements.ForEach(person => person.horizontalMove = inputController.Player.Run.ReadValue<float>());
-    }
-
-    void OnDestroy()
-    {
-        inputController.Player.Jump.started -= JumpAll;
-        inputController.Player.Use.started -= UseAll;
-
-        inputController.Player.Disable();
-    }
-
-    private void JumpAll(InputAction.CallbackContext context) => playerMovements.ForEach(person => person.Jump());
-
-    private void UseAll(InputAction.CallbackContext context) => playerTriggers.ForEach(person => person.Use());
 }

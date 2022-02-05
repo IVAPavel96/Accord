@@ -8806,6 +8806,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5461652728160402562, guid: 6b2f7b6745986e742892ea3f464b1342, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8406276516767586716, guid: 6b2f7b6745986e742892ea3f464b1342, type: 3}
       propertyPath: m_Name
       value: ===UI===
@@ -8853,6 +8857,10 @@ PrefabInstance:
     - target: {fileID: 8406276516767586787, guid: 6b2f7b6745986e742892ea3f464b1342, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406276517697049716, guid: 6b2f7b6745986e742892ea3f464b1342, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8406276517516294415, guid: 6b2f7b6745986e742892ea3f464b1342, type: 3}
@@ -10270,6 +10278,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1781074655}
+    - target: {fileID: 2663865951757547869, guid: 5ae73df926914674e9b23432e3630772, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2663865951757547869, guid: 5ae73df926914674e9b23432e3630772, type: 3}
     - target: {fileID: 2663865951757547870, guid: 5ae73df926914674e9b23432e3630772, type: 3}
       propertyPath: m_Name
       value: GameSystems

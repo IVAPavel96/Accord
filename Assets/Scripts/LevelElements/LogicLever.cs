@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LevelElements
 {
-    public class LogicLever : LogicTriggerInput
+    public class LogicLever : LogicTriggerInput, IInteractableObject
     {
         [SerializeField, BoxGroup()] private Transform movingPart;
         [SerializeField, BoxGroup()] private float rotationMin;
@@ -16,46 +16,26 @@ namespace LevelElements
         private bool inUsableRange;
         private bool triggerEnabled;
 
-        private void Update()
+        public void StartUse()
         {
-            //ChangeLeverState(); //todo показать Саше: если раскомментировать, то забавный эффект
+            ToggleLeverState();
         }
 
-        public void ChangeLeverState()
+        public void ToggleLeverState()
         {
-            //if (inUsableRange && Input.GetButtonDown("Use"))
-            if (inUsableRange) //todo: скорее всего, эта проверка уже не нужна, но лучше уберем вместе
-            {
-                triggerEnabled = !triggerEnabled;
+            triggerEnabled = !triggerEnabled;
 
-                if (triggerEnabled)
-                {
-                    movingPart?.DOLocalRotate(Vector3.forward * rotationMax, rotationTime, RotateMode.FastBeyond360);
-                    TriggerEnable();
-                    audioOnTrigger?.Play();
-                }
-                else
-                {
-                    movingPart?.DOLocalRotate(Vector3.forward * rotationMin, rotationTime, RotateMode.FastBeyond360);
-                    TriggerDisable();
-                    audioOffTrigger?.Play();
-                }
+            if (triggerEnabled)
+            {
+                movingPart?.DOLocalRotate(Vector3.forward * rotationMax, rotationTime, RotateMode.FastBeyond360);
+                TriggerEnable();
+                audioOnTrigger?.Play();
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Player"))
+            else
             {
-                inUsableRange = true;
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                inUsableRange = false;
+                movingPart?.DOLocalRotate(Vector3.forward * rotationMin, rotationTime, RotateMode.FastBeyond360);
+                TriggerDisable();
+                audioOffTrigger?.Play();
             }
         }
     }

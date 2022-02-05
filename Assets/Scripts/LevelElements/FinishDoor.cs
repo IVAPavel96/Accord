@@ -1,8 +1,9 @@
 ﻿using DG.Tweening;
 using Extensions;
-using Player;
+using Game;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace LevelElements
 {
@@ -13,6 +14,8 @@ namespace LevelElements
         [SerializeField] private SpriteRenderer closedState;
         [SerializeField, HideInInspector] private bool isOpened;
         [SerializeField] private float fadeDuration = 1f;
+
+        [Inject] private GameStateManager gameStateManager;
 
         private LogicTriggerOutput trigger;
 
@@ -62,7 +65,7 @@ namespace LevelElements
         {
             if (isOpened && other.CompareTag("Player"))
             {
-                other.GetComponent<PlayerMovement>().OnFinish();
+                gameStateManager.PlayerFinished(other.gameObject);
             }
         }
     }

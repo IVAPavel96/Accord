@@ -14,7 +14,6 @@ public class SettingsMenu : MonoBehaviour
     {
         androidHorizontalInputDd.onValueChanged.AddListener((value) =>
         {
-            Debug.Log("dropdown value: " + value);
             PlayerPrefs.SetInt("AndroidHorizontalInput", value);
         });
         back.onClick.AddListener(OpenMain);

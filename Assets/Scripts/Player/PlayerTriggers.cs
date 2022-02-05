@@ -1,33 +1,42 @@
 using Game;
 using LevelElements;
 using UnityEngine;
+using Zenject;
 
 namespace Player
 {
     public class PlayerTriggers : MonoBehaviour
     {
-        private LogicLever logicInput;
+        [Inject] private GameStateManager gameStateManager;
+
+        private IInteractableObject interactable;
+
         public void Use()
         {
-            if (logicInput == null) return;
-            logicInput.ChangeLeverState();
+            interactable?.StartUse();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Danger"))
+            switch (other.tag)
             {
-                GameStateManager.Instance.TriggerDeath();
+                case "Danger":
+                    gameStateManager.TriggerDeath();
+                    break;
+                case "Logic":
+                    interactable = (IInteractableObject) other.GetComponent(typeof(IInteractableObject));
+                    break;
             }
-
-            if (other.CompareTag("Logic"))
-                logicInput = other.GetComponent<LogicLever>();
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Logic"))
-                logicInput = null;
+            switch (other.tag)
+            {
+                case "Logic":
+                    interactable = null;
+                    break;
+            }
         }
     }
 }

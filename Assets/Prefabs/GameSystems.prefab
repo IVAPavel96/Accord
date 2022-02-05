@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2663865951757547871}
+  - component: {fileID: 4034352238810679691}
+  - component: {fileID: 1054756779262316825}
   - component: {fileID: 2663865951757547858}
   - component: {fileID: 2663865951757547868}
   - component: {fileID: 2663865951757547869}
@@ -34,6 +36,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4034352238810679691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2663865951757547870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1054756779262316825}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!114 &1054756779262316825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2663865951757547870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea090664442dc8f42a1d09d7bbfd2c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2663865951757547858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,6 +97,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onWin:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerFinished:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2663865951757547868
@@ -81,6 +130,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69487da653c4e0dbf52e63bb3791005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: db98a4b17eb799d47bbb7d7a6fd90ea5, type: 3}
+    - {fileID: 8300000, guid: 1ea51e485823dd3408f5a169416931db, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: audioClipInfos
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Game.AudioType, Assembly-CSharp],[Game.AudioManager+AudioClipInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Game.AudioType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|Game.AudioManager+AudioClipInfo, Assembly-CSharp
+    - Name: clip
+      Entry: 10
+      Data: 0
+    - Name: volume
+      Entry: 4
+      Data: 0.7
+    - Name: pitch
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|Game.AudioManager+AudioClipInfo, Assembly-CSharp
+    - Name: clip
+      Entry: 10
+      Data: 1
+    - Name: volume
+      Entry: 4
+      Data: 0.7
+    - Name: pitch
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  audioSourcePrefab: {fileID: 5703814622866792977, guid: b95687885f64a5045b851b4fe70212bc, type: 3}
   deathSound: {fileID: 2663865952802986754}
   winSound: {fileID: 3988065918119190052}
 --- !u!1 &2663865952509310032

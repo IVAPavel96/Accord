@@ -16,7 +16,6 @@ public class InputScreen : MonoBehaviour
     {
         joystick.SetActive(false);
         buttons.SetActive(false);
-        Debug.Log("value: " + value);
         switch (value)
         {
             case 0:
@@ -26,7 +25,7 @@ public class InputScreen : MonoBehaviour
                 joystick.SetActive(true);
                 break;
             default:
-                Debug.Log("неопознанное устройство ввода");
+                Debug.Log("РЅРµРѕРїРѕР·РЅР°РЅРЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РІРІРѕРґР°");
                 break;
         }
     }

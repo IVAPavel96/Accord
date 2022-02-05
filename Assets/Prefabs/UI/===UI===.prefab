@@ -181,10 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -219,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 4567397467090824276, guid: 0d16ddf5e4a1cca4e9bf5ef6e7b4722a, type: 3}
       propertyPath: m_Name
       value: DeathScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567397467090824276, guid: 0d16ddf5e4a1cca4e9bf5ef6e7b4722a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4567397467090824283, guid: 0d16ddf5e4a1cca4e9bf5ef6e7b4722a, type: 3}
       propertyPath: m_Pivot.x
@@ -370,6 +374,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445687094346, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5494899446718370904, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -482,6 +494,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9013836032979370558, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
 --- !u!224 &2550924146901716796 stripped
@@ -499,6 +515,10 @@ PrefabInstance:
     - target: {fileID: 4567397467090824276, guid: 6820b35c8bcc65340ac9f95c6b2abc8c, type: 3}
       propertyPath: m_Name
       value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567397467090824276, guid: 6820b35c8bcc65340ac9f95c6b2abc8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4567397467090824283, guid: 6820b35c8bcc65340ac9f95c6b2abc8c, type: 3}
       propertyPath: m_Pivot.x

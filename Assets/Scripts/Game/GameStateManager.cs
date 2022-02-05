@@ -7,21 +7,17 @@ namespace Game
 {
     public class GameStateManager : MonoBehaviour
     {
-        public static GameStateManager Instance;
-
         [SerializeField] private string nextScene;
 
         public UnityEvent onDeath = new UnityEvent();
         public UnityEvent onWin = new UnityEvent();
+        public UnityEvent<GameObject> onPlayerFinished = new UnityEvent<GameObject>();
 
         private bool isDead;
         private HashSet<GameObject> players = new HashSet<GameObject>();
         private HashSet<GameObject> playersFinished = new HashSet<GameObject>();
 
-        private void Awake()
-        {
-            Instance = this;
-        }
+        public IEnumerable<GameObject> Players => players;
 
         public void ReloadScene()
         {
@@ -50,6 +46,11 @@ namespace Game
 
         public void PlayerFinished(GameObject player)
         {
+            if (!playersFinished.Contains(player))
+            {
+                onPlayerFinished.Invoke(player);
+            }
+
             playersFinished.Add(player);
             if (playersFinished.Count == players.Count)
             {

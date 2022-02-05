@@ -1,5 +1,6 @@
 ﻿using UI;
 using UnityEngine;
+using Zenject;
 
 namespace Game
 {
@@ -10,16 +11,18 @@ namespace Game
         [SerializeField] private UIWindow winScreen;
         [SerializeField] private float winScreenFadeTime;
 
+        [Inject] private GameStateManager gameStateManager;
+
         private void Start()
         {
-            GameStateManager.Instance.onDeath.AddListener(OnDeath);
-            GameStateManager.Instance.onWin.AddListener(OnWin);
+            gameStateManager.onDeath.AddListener(OnDeath);
+            gameStateManager.onWin.AddListener(OnWin);
         }
 
         private void OnDestroy()
         {
-            GameStateManager.Instance.onDeath.RemoveListener(OnDeath);
-            GameStateManager.Instance.onWin.RemoveListener(OnWin);
+            gameStateManager.onDeath.RemoveListener(OnDeath);
+            gameStateManager.onWin.RemoveListener(OnWin);
         }
 
         private void OnDeath()

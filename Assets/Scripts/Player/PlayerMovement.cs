@@ -1,10 +1,11 @@
 using System;
+using System.Linq;
 using Extensions;
 using Game;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+using Zenject;
+using AudioType = Game.AudioType;
 
 namespace Player
 {
@@ -14,15 +15,13 @@ namespace Player
         [SerializeField] private float jumpForce;
         [SerializeField] private Transform groundedCollisionPoint;
         [SerializeField] private LayerMask groundMask;
-        [SerializeField] private AudioSource jumpSound;
-        [SerializeField] private AudioSource fallSound;
 
-        public float horizontalMove { get; set; }
-    
+        [Inject] private GameStateManager gameStateManager;
+        [Inject] private AudioManager audioManager;
 
-        
+        public float HorizontalMove { get; set; }
+
         private Rigidbody2D rb;
-        private SpriteRenderer renderer;
         private bool wasGrounded; //нужна для анимации завершения прыжка
         private bool isHittingLeft;
         private bool isHittingRight;
@@ -39,25 +38,26 @@ namespace Player
 
         #endregion
 
-        #region ивенты для аниматора 
+        #region ивенты для аниматора
+
         //todo возможно, аналогично стоит сделать PlayerSound!!!
         public event Action<float> OnHorizontalMoving;
         public event Action OnJumping;
         public event Action OnLanding;
         public event Action<bool> OnHittingWalls;
-        public event Action OnFinishing;
+
         #endregion
 
 
         private readonly float groundCheckRadius = 0.1f;
-        private readonly Collider2D[] collisionBuffer = new Collider2D[1];
+        private readonly Collider2D[] collisionBuffer = new Collider2D[10];
         private bool Grounded
         {
             get
             {
                 Vector2 position = groundedCollisionPoint.position.xy();
                 int collisionCount = Physics2D.OverlapCircleNonAlloc(position, groundCheckRadius, collisionBuffer, groundMask);
-                return collisionCount > 0;
+                return collisionBuffer.Take(collisionCount).Any(collider => !collider.isTrigger);
             }
         }
 
@@ -65,78 +65,66 @@ namespace Player
         {
             rb = GetComponent<Rigidbody2D>();
             wasGrounded = Grounded;
-            renderer = GetComponentInChildren<SpriteRenderer>();
             var circleR = GetComponent<CircleCollider2D>().radius;
             playerRadius = circleR * circleR;
             Physics2D.queriesStartInColliders = false;
-            
+            gameStateManager.RegisterPlayer(gameObject); // TODO убрать отсюда эту хуиту
         }
 
         private void Start()
         {
-            GameStateManager.Instance.onDeath.AddListener(OnDeath);
-            GameStateManager.Instance.RegisterPlayer(gameObject);
+            gameStateManager.onDeath.AddListener(OnDeath);
+            gameStateManager.onPlayerFinished.AddListener(OnPlayerFinished);
         }
 
         private void OnDestroy()
         {
-            GameStateManager.Instance.onDeath.AddListener(OnDeath);
+            gameStateManager.onDeath.RemoveListener(OnDeath);
+            gameStateManager.onPlayerFinished.RemoveListener(OnPlayerFinished);
         }
 
         private void OnDeath()
         {
-            OnFinishing?.Invoke();
-            
             rb.isKinematic = true;
             rb.velocity = Vector2.zero;
             enabled = false;
         }
 
-        public void OnFinish()
+        public void OnPlayerFinished(GameObject player)
         {
-            OnFinishing.Invoke();
+            if (player != gameObject)
+                return;
+
             rb.velocity = Vector2.zero;
             enabled = false;
-            GameStateManager.Instance.PlayerFinished(gameObject);
         }
 
-        
+
         private void Update()
         {
-            //Jump();
             MoveHorizontal();
-
+            CheckGrounded();
             CheckWallsCollision();
-            
         }
 
         public void Jump()
         {
-            //if (Input.GetButtonDown("Jump") && Grounded)
-            if (Grounded)
+            if (Grounded && enabled)
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 OnJumping?.Invoke();
-                jumpSound.Play();
+                audioManager.PlaySound(AudioType.Jump);
             }
-            if (!wasGrounded && Grounded)
-            {
-                OnLanding?.Invoke();
-                fallSound.Play();
-            }
-            wasGrounded = Grounded;
         }
-        
+
 
         private void MoveHorizontal()
         {
             //float inputDirection = Input.GetAxis("Horizontal");
-            float inputDirection = horizontalMove;
+            float inputDirection = HorizontalMove;
             SetHorizontalVelocity(inputDirection * horizontalVelocity);
 
             OnHorizontalMoving?.Invoke(inputDirection);
-            if (Mathf.Abs(inputDirection) > 0.01f)
-                renderer.flipX = !(inputDirection > 0); //меняем ориентацию при смене направления
         }
 
         private void SetHorizontalVelocity(float velocity)
@@ -148,10 +136,22 @@ namespace Player
 
         private void CheckWallsCollision()
         {
-            isHittingRight = CheckHitFromDir(transform.right);
-            isHittingLeft = CheckHitFromDir(-transform.right);
+            Vector3 right = transform.right;
+            isHittingRight = CheckHitFromDir(right);
+            isHittingLeft = CheckHitFromDir(-right);
             isHittingWalls = isHittingRight || isHittingLeft;
             OnHittingWalls?.Invoke(isHittingWalls);
+        }
+
+        private void CheckGrounded()
+        {
+            if (!wasGrounded && Grounded)
+            {
+                OnLanding?.Invoke();
+                audioManager.PlaySound(AudioType.Fall);
+            }
+
+            wasGrounded = Grounded;
         }
 
         private bool CheckHitFromDir(Vector2 direction)
@@ -165,7 +165,5 @@ namespace Player
             //distance = Vector2.SqrMagnitude(hit.point - (Vector2)transform.position);
             //return distance <= playerRadiusSqr + 0.05f;
         }
-
-        
     }
 }
