@@ -68,6 +68,17 @@ public partial class @InputControl : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""a3303ffe-fad2-4274-9147-f07fe0d746c2"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""AD"",
                     ""id"": ""bd9400c7-9da7-4304-b918-d0a78ae78eaa"",
                     ""path"": ""1DAxis"",
@@ -146,8 +157,8 @@ public partial class @InputControl : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""00f13191-cc99-484a-8e49-81dd6766e893"",
-                    ""path"": ""<Touchscreen>/touch0/tap"",
+                    ""id"": ""3357bf81-b280-44b7-abd3-8f9f85bf2798"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

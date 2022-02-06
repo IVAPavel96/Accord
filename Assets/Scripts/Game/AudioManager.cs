@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +20,7 @@ namespace Game
         [SerializeField] private Dictionary<AudioType, AudioClipInfo> audioClipInfos;
         [SerializeField] private AudioSource deathSound;
         [SerializeField] private AudioSource winSound;
+        [SerializeField] private AudioSource backgroundMusic;
 
         [Serializable, InlineProperty]
         private class AudioClipInfo
@@ -40,6 +42,13 @@ namespace Game
             audioPool = gameObject.AddComponent<GameObjectPool>();
             audioPool.prefab = audioSourcePrefab;
             audioPool.Initialize();
+
+            backgroundMusic.transform.SetParent(null);
+            DontDestroyOnLoad(backgroundMusic);
+            GameObject.FindGameObjectsWithTag("MenuMusic").ForEach(music => Destroy(music));
+            GameObject[] musics = GameObject.FindGameObjectsWithTag("GameMusic");
+            if (musics.Length > 1)
+                Destroy(backgroundMusic.gameObject);
         }
 
         private void OnDestroy()

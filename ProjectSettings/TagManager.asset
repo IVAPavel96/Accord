@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Danger
-  - BackgroundMusic
   - Logic
+  - MenuMusic
+  - GameMusic
   layers:
   - Default
   - TransparentFX

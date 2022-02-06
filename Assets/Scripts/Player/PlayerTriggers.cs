@@ -11,6 +11,8 @@ namespace Player
 
         private IInteractableObject interactable;
 
+        public bool IsInteractable => interactable != null;
+
         public void Use()
         {
             interactable?.StartUse();

@@ -1,3 +1,4 @@
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,15 +22,10 @@ namespace UI
             settings.onClick.AddListener(OpenSettings);
             exit.onClick.AddListener(Exit);
             DontDestroyOnLoad(backgroundMusic);
-            GameObject[] musics = GameObject.FindGameObjectsWithTag("BackgroundMusic");
+            GameObject.FindGameObjectsWithTag("GameMusic").ForEach(music => Destroy(music));
+            GameObject[] musics = GameObject.FindGameObjectsWithTag("MenuMusic");
             if (musics.Length > 1)
-            {
-                foreach (var music in musics)
-                {
-                    if (music == backgroundMusic)
-                        Destroy(music);
-                }
-            }
+                Destroy(backgroundMusic);
         }
 
         private void OpenSettings()

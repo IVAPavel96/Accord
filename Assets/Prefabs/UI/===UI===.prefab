@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8406276517516294408}
   - component: {fileID: 8406276517516294414}
-  - component: {fileID: 738007147762237093}
+  - component: {fileID: 4425493803120396112}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &738007147762237093
+--- !u!114 &4425493803120396112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,7 +375,27 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 249.59998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494899445455719951, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5494899445687094346, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
@@ -492,6 +512,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6294905116975956376, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 249.59998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994272826439977708, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9013836032979370558, guid: d9e5c01df752cbb4eb23914133ce3eed, type: 3}

@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ATLAS_PROPS
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: d2a0bcb98a23351468046aff1ff4381a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8901216933838173584, guid: 931575f09396e3441beff0eb09b24c00, type: 3}
+  - {fileID: -5801132732948565907, guid: cb8c65712c5d7c548864cbdc7e322944, type: 3}
+  - {fileID: 4061365741840799890, guid: e78f38320346030418ba9efdb894e7fb, type: 3}
+  - {fileID: 1552368588738671734, guid: 6abe1b623814ce74b9364d515d499efd, type: 3}
+  - {fileID: 7132766833714234575, guid: da9c8aa20c9d4cf47a4cd32c6648c5dd, type: 3}
+  - {fileID: 9087207327684497215, guid: 0cae1893b0a0b7542bf5ac3bed47e02d, type: 3}
+  - {fileID: 7356260930946471798, guid: 54387ea303a543048bbbd9752f7995d1, type: 3}
+  - {fileID: 2837257013642637027, guid: d1af27c35a134e146accfb86527403ad, type: 3}
+  - {fileID: 7569196456447642212, guid: de90d66432a1bbc4985d6cec4c384ab3, type: 3}
+  - {fileID: -3851243057998430076, guid: 705bbcb446def184e9fd78a86cad7e9a, type: 3}
+  - {fileID: -39261066800077869, guid: b5ca3125e8cc90b449e2fd400373e9bd, type: 3}
+  - {fileID: 13537634765327236, guid: 1ee4a055685784445883a6a8215736da, type: 3}
+  - {fileID: -1132214560319676334, guid: 9e29343629041e642bd9aa42e26f075a, type: 3}
+  - {fileID: 2046492272629907881, guid: 7439bae77ee8fe548817c3cbb38c2583, type: 3}
+  - {fileID: 5524253696037386625, guid: 3e0dd818b31709546949904178a4379c, type: 3}
+  - {fileID: -1479041520144092992, guid: 69be3b097703b17409c44c942cd8c13c, type: 3}
+  - {fileID: -6268241297508726992, guid: feb48c594699fcd44931b15581a909f8, type: 3}
+  - {fileID: 2426276131991496504, guid: 9664d55aa95c74149ae8064eefd8f6d0, type: 3}
+  - {fileID: -8274196694388497642, guid: 0918a73bbb6334a49b421997269c82b3, type: 3}
+  - {fileID: 6164617915489294432, guid: fbb87f8bf6245fd449ea6754ccc31c2b, type: 3}
+  - {fileID: 3495790299642632420, guid: a62d3b6c7a73c46459efbba1e28e333e, type: 3}
+  - {fileID: -3975624549204834352, guid: 92e70d0d2258177409f8f9734d73f074, type: 3}
+  - {fileID: 3923776886143599844, guid: 4ad99b1d387ada24db639b1a4f9b2ea9, type: 3}
+  - {fileID: 1723308667398090802, guid: 5cb1a05d61e2b674e98c9a485921f0d3, type: 3}
+  - {fileID: -8030835215644163416, guid: 274b9f1f41732b445a0b1008e6ecc453, type: 3}
+  - {fileID: 4593790695142810731, guid: 66f7078fb9009c84299d0033cf27d543, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - platform_stone_2_0
+  - segments_0009_0
+  - lever_base_0
+  - segments_0011_0
+  - pressure_plate_base_0
+  - door_open_0
+  - segments_0007_0
+  - grass_1_0
+  - door_closed_0
+  - segments_0008_0
+  - segments_0003_0
+  - crystal_heart_0
+  - segments_0005_0
+  - segments_0001_0
+  - platform_wood_0
+  - pressure_plate_0
+  - grass_2_0
+  - segments_0004_0
+  - arch_0
+  - platform_stone_1_0
+  - segments_0006_0
+  - lever_0
+  - control_panel_0
+  - segments_0012_0
+  - car_0
+  - segments_0010_0
+  m_RenderDataMap: {}
+  m_Tag: ATLAS_PROPS
+  m_IsVariant: 0
