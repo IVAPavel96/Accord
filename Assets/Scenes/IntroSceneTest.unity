@@ -592,6 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 312045528}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -859,6 +861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 381111879}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -1217,6 +1221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 656816718}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -1874,6 +1880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 1220422745}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -2297,6 +2305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 1469633129}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -2934,6 +2944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 1698792043}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls:
@@ -3669,7 +3681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWindow: {fileID: 1220422748}
-  nextLevel: Lvl1
+  nextLevel: Lvl0
 --- !u!114 &3713600857447786342
 MonoBehaviour:
   m_ObjectHideFlags: 0

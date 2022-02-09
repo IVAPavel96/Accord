@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 314014065}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls: []
@@ -454,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 447172333}
+  visibleOnAwake: 0
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls: []
@@ -461,6 +465,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   levels:
+  - LevelName: T1
+    SceneName: Lvl0
   - LevelName: 1
     SceneName: Lvl1
   - LevelName: 2
@@ -2413,6 +2419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 2078575534}
+  visibleOnAwake: 1
+  callEventsOnAwake: 0
   onShow:
     m_PersistentCalls:
       m_Calls: []

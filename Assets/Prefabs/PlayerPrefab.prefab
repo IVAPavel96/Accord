@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7307796605853604077}
   - component: {fileID: 1606925812292839685}
   m_Layer: 3
-  m_Name: Renderer
+  m_Name: PlayerRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,8 +189,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1
-  jumpSound: {fileID: 7078392028634188650}
-  fallSound: {fileID: 1271654596183230746}
 --- !u!114 &243145606747966906
 MonoBehaviour:
   m_ObjectHideFlags: 0
