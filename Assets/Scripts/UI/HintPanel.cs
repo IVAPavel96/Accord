@@ -43,6 +43,7 @@ namespace UI
             hintMove.onShow.AddListener(() => MoveControllersHighlight(true));
             hintMove.onHide.AddListener(() =>
             {
+                hintMove.onHide.RemoveAllListeners();
                 DisableBlinkingAnimations();
                 hintJump.Show(0.2f);
             });
