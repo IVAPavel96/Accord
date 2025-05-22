@@ -86,7 +86,7 @@ namespace Player
         private void OnDeath()
         {
             rb.isKinematic = true;
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             enabled = false;
         }
 
@@ -95,7 +95,7 @@ namespace Player
             if (player != gameObject)
                 return;
 
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             enabled = false;
         }
 
@@ -129,9 +129,9 @@ namespace Player
 
         private void SetHorizontalVelocity(float velocity)
         {
-            Vector2 newVelocity = rb.velocity;
+            Vector2 newVelocity = rb.linearVelocity;
             newVelocity.x = velocity;
-            rb.velocity = newVelocity;
+            rb.linearVelocity = newVelocity;
         }
 
         private void CheckWallsCollision()

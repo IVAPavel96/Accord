@@ -21,7 +21,7 @@ SpriteAtlas:
       crunchedCompression: 0
       sRGB: 1
     platformSettings:
-    - serializedVersion: 3
+    - serializedVersion: 4
       m_BuildTarget: DefaultTexturePlatform
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
@@ -31,6 +31,7 @@ SpriteAtlas:
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
       m_Overridden: 0
+      m_IgnorePlatformSupport: 0
       m_AndroidETC2FallbackOverride: 0
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
@@ -40,6 +41,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+      enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
@@ -47,6 +49,16 @@ SpriteAtlas:
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - cd7fcb01b2abc264ca7865c8f0beba68: 4333945467854271405
+    - 5d49a3a1be612874b97db0a8477fbd28: 8153851540964632471
+    - c10d99c104388dd4b94d6dce4f3d7421: 3556366926254597146
+    - eb654a34eb87aba46874a38aadc41404: 913278236245225271
+    - 8638eb77696d2a94c93708d01c65ff3b: 1086331387851373080
+    - 074f59a808dd1634cbca1fe31e3d3b97: 5400878772334970634
+    - a202732bd917d4846a7dd7dfcfb5bce4: -3077499599575860653
+    - 6a315a3b31725a14eb6fee142ff22b44: -273298377318993890
+    - 6f11ff6b04f52a2469df24f224080e26: 8871750365745515610
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 4333945467854271405, guid: cd7fcb01b2abc264ca7865c8f0beba68, type: 3}
